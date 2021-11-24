@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+    has_many :days, dependent: :destroy
     def index
         users = User.all
 
