@@ -8,7 +8,7 @@ class DaysController < ApplicationController
 
 
     def create
-        day= Day.create(params.require(:day).permit(:user_id, :date, :content))
+        day= Day.create!(params.require(:day).permit(:user_id, :date, :content))
 
         render json: day, status: :created
     end

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
 
     def create
-        user = User.create(params.require(:user).permit(:username, :password))
+        user = User.create!(params.require(:user).permit(:username, :password))
 
         render json: user, status: :created
     end
