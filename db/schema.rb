@@ -13,11 +13,12 @@
 ActiveRecord::Schema.define(version: 2021_11_22_042831) do
 
   create_table "days", charset: "utf8", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.date "date"
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_days_on_user_id"
   end
 
   create_table "users", charset: "utf8", force: :cascade do |t|
@@ -27,4 +28,5 @@ ActiveRecord::Schema.define(version: 2021_11_22_042831) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "days", "users"
 end
